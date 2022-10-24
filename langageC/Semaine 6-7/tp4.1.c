@@ -68,17 +68,15 @@ int main() {
 			}
 		}
 
-		H = input;
+		L = input;
 
 		/**
 		 * Parcours de la nouvelle colonne pour mettre des '.'
 		 **/
-		for (int i = input; i < input+1; ++i)
-		{
-			for(int a = 1 ; a<=L ; a++){
-				m[i][a] = '.';
-			}
+		for(int a = 0; a < L ; a++){
+			m[input][a] = '.';
 		}
+	
 		
 		for (int i = L; i >= 1; --i){
 			if(m[i][input] == '.'){
