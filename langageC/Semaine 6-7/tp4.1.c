@@ -18,32 +18,29 @@ int main() {
 	 **/
 	char** m;
 	m = (char**) malloc(H * sizeof(char*));
-	//if(H == null){
-	//	exit(1);
-	
 
 	/**
 	 * Creation d'une matrice de char 
 	 **/
-	for (int i = 1; i <= H; ++i)
+	for (int i = 0; i < H; ++i)
 	{
 		m[i] = (char*) malloc (L * sizeof(char));
 		//conditions a verifer
-		//if(m[i] == null){ 
-		//	exit(1);			
-		//} 
+		if(m[i] == NULL){ 
+			exit(1);			
+		} 
 	}
 
 	/**
 	 * Afficher la matrice avec des '.'
 	 * Parcours chaque ligne
 	 **/
-	for (int i = 1; i <=H; ++i)
+	for (int i = 0; i <H; ++i)
 	{
 		/**
 		 * Parcours chaque index de ma ligne -> les colonnes de ma ligne
 		 **/
-		for(int a = 1; a <= L; a++){
+		for(int a = 0; a <L; a++){
 			m[i][a] = '.';
 			printf("%c ", m[i][a]);
 
@@ -67,10 +64,21 @@ int main() {
 		if(input > L){
 			for (int i = 0; i < L; ++i)
 			{	
-				*m = (char*)realloc(*m, input*sizeof(char));
+				m[i] = (char*)realloc(m[i], input*sizeof(char));
 			}
 		}
-		
+
+		H = input;
+
+		/**
+		 * Parcours de la nouvelle colonne pour mettre des '.'
+		 **/
+		for (int i = input; i < input+1; ++i)
+		{
+			for(int a = 1 ; a<=L ; a++){
+				m[i][a] = '.';
+			}
+		}
 		
 		for (int i = L; i >= 1; --i){
 			if(m[i][input] == '.'){
